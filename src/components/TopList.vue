@@ -44,7 +44,7 @@ onBeforeUnmount(() => {
       <Column field="name" header="昵称" class="!text-center" />
       <Column field="target" header="目标体重" class="!text-center" />
       <Column field="latestWeight" header="当前体重" class="!text-center" />
-      <!-- <Column field="latestDate" header="latestDate" /> -->
+      <Column field="difference" header="目标还差" class="!text-center" />
     </DataTable>
   </div>
 </template>
