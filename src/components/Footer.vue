@@ -7,7 +7,7 @@ function logout() {
   localStorage.removeItem('token')
   localStorage.removeItem('userId')
   // 重定向到登录页面
-  window.location.href = '/login'
+  window.location.href = '/'
 }
 </script>
 

@@ -8,8 +8,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('primevue/button')['default']
-    Calendar: typeof import('primevue/calendar')['default']
-    Chart: typeof import('primevue/chart')['default']
     Checkbox: typeof import('primevue/checkbox')['default']
     Column: typeof import('primevue/column')['default']
     DataTable: typeof import('primevue/datatable')['default']
@@ -28,13 +26,10 @@ declare module 'vue' {
     Login: typeof import('./src/components/Login.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Star: typeof import('./src/components/Star.vue')['default']
-    Stat: typeof import('./src/components/Stat.vue')['default']
     StatCard: typeof import('./src/components/StatCard.vue')['default']
     Textarea: typeof import('primevue/textarea')['default']
     Toast: typeof import('primevue/toast')['default']
     TopList: typeof import('./src/components/TopList.vue')['default']
-    Weight: typeof import('./src/components/Weight.vue')['default']
     WeightWeek: typeof import('./src/components/WeightWeek.vue')['default']
   }
 }

@@ -13,7 +13,9 @@ const api = axios.create({
 
 // 请求拦截器 - 请求开始时显示进度条
 api.interceptors.request.use((config) => {
-  NProgress.start()
+  if (config.url !== '/info/getAllUserInfo') {
+    NProgress.start()
+  }
   let token = sessionStorage.getItem('token')
   if (token) {
     token = localStorage.getItem('token')
@@ -30,7 +32,9 @@ api.interceptors.request.use((config) => {
 
 // 响应拦截器 - 请求结束时隐藏进度条
 api.interceptors.response.use((response) => {
-  NProgress.done()
+  if (response.url !== '/info/getAllUserInfo') {
+    NProgress.done()
+  }
   return response
 }, (error) => {
   NProgress.done()
