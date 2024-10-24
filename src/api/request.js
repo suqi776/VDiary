@@ -14,6 +14,14 @@ const api = axios.create({
 // 请求拦截器 - 请求开始时显示进度条
 api.interceptors.request.use((config) => {
   NProgress.start()
+  let token = sessionStorage.getItem('token')
+  if (token) {
+    token = localStorage.getItem('token')
+  }
+  // 如果请求不是登录请求，添加Authorization头
+  if (token && config.url !== '/login') {
+    config.headers.Authorization = `Bearer ${token}`
+  }
   return config
 }, (error) => {
   NProgress.done()
@@ -26,6 +34,14 @@ api.interceptors.response.use((response) => {
   return response
 }, (error) => {
   NProgress.done()
+  if (error.response && error.response.status === 401 && error.config.url !== '/login') {
+    console.error('令牌已过期，请重新登录')
+    // 跳转到登录页面
+    // window.location.href = '/login'
+  }
+  else {
+    console.error('请求失败:', error)
+  }
   return Promise.reject(error)
 })
 

@@ -8,6 +8,7 @@ declare global {
   const EffectScope: typeof import('vue')['EffectScope']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
+  const calculatePercentageChange: typeof import('./src/composables/util.js')['calculatePercentageChange']
   const computed: typeof import('vue')['computed']
   const computedAsync: typeof import('@vueuse/core')['computedAsync']
   const computedEager: typeof import('@vueuse/core')['computedEager']
@@ -32,18 +33,41 @@ declare global {
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
   const extendRef: typeof import('@vueuse/core')['extendRef']
+  const getConvertDate: typeof import('./src/composables/Date.js')['getConvertDate']
+  const getConvertDateTime: typeof import('./src/composables/Date.js')['getConvertDateTime']
+  const getCurrentDate: typeof import('./src/composables/Date.js')['getCurrentDate']
+  const getCurrentDateTime: typeof import('./src/composables/Date.js')['getCurrentDateTime']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
+  const getDateAdd: typeof import('./src/composables/Date.js')['getDateAdd']
+  const getDateDiff: typeof import('./src/composables/Date.js')['getDateDiff']
+  const getDateSubtract: typeof import('./src/composables/Date.js')['getDateSubtract']
+  const getEarlyDaysDate: typeof import('./src/composables/Date.js')['getEarlyDaysDate']
+  const getIntermediateDate: typeof import('./src/composables/Date.js')['getIntermediateDate']
+  const getLastDaysDate: typeof import('./src/composables/Date.js')['getLastDaysDate']
+  const getLastWeekRange: typeof import('./src/composables/Date.js')['getLastWeekRange']
+  const getXAfterDate: typeof import('./src/composables/Date.js')['getXAfterDate']
+  const getXAfterDateTime: typeof import('./src/composables/Date.js')['getXAfterDateTime']
+  const getXBeforeDate: typeof import('./src/composables/Date.js')['getXBeforeDate']
+  const getXBeforeDateTime: typeof import('./src/composables/Date.js')['getXBeforeDateTime']
   const h: typeof import('vue')['h']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
   const injectLocal: typeof import('@vueuse/core')['injectLocal']
+  const isAfter: typeof import('./src/composables/Date.js')['isAfter']
+  const isBefore: typeof import('./src/composables/Date.js')['isBefore']
+  const isBetween: typeof import('./src/composables/Date.js')['isBetween']
   const isDark: typeof import('./src/composables/dark')['isDark']
   const isDefined: typeof import('@vueuse/core')['isDefined']
   const isProxy: typeof import('vue')['isProxy']
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
+  const isSame: typeof import('./src/composables/Date.js')['isSame']
+  const isSameOrAfter: typeof import('./src/composables/Date.js')['isSameOrAfter']
+  const isSameOrBefore: typeof import('./src/composables/Date.js')['isSameOrBefore']
+  const isValidDate: typeof import('./src/composables/Date.js')['isValidDate']
+  const isValidDateTime: typeof import('./src/composables/Date.js')['isValidDateTime']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
   const markRaw: typeof import('vue')['markRaw']
   const nextTick: typeof import('vue')['nextTick']
@@ -90,6 +114,7 @@ declare global {
   const syncRef: typeof import('@vueuse/core')['syncRef']
   const syncRefs: typeof import('@vueuse/core')['syncRefs']
   const templateRef: typeof import('@vueuse/core')['templateRef']
+  const theme: typeof import('./src/composables/theme.js')['default']
   const throttledRef: typeof import('@vueuse/core')['throttledRef']
   const throttledWatch: typeof import('@vueuse/core')['throttledWatch']
   const toRaw: typeof import('vue')['toRaw']
@@ -299,6 +324,7 @@ declare module 'vue' {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
+    readonly calculatePercentageChange: UnwrapRef<typeof import('./src/composables/util.js')['calculatePercentageChange']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly computedAsync: UnwrapRef<typeof import('@vueuse/core')['computedAsync']>
     readonly computedEager: UnwrapRef<typeof import('@vueuse/core')['computedEager']>
@@ -323,18 +349,41 @@ declare module 'vue' {
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
+    readonly getConvertDate: UnwrapRef<typeof import('./src/composables/Date.js')['getConvertDate']>
+    readonly getConvertDateTime: UnwrapRef<typeof import('./src/composables/Date.js')['getConvertDateTime']>
+    readonly getCurrentDate: UnwrapRef<typeof import('./src/composables/Date.js')['getCurrentDate']>
+    readonly getCurrentDateTime: UnwrapRef<typeof import('./src/composables/Date.js')['getCurrentDateTime']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getDateAdd: UnwrapRef<typeof import('./src/composables/Date.js')['getDateAdd']>
+    readonly getDateDiff: UnwrapRef<typeof import('./src/composables/Date.js')['getDateDiff']>
+    readonly getDateSubtract: UnwrapRef<typeof import('./src/composables/Date.js')['getDateSubtract']>
+    readonly getEarlyDaysDate: UnwrapRef<typeof import('./src/composables/Date.js')['getEarlyDaysDate']>
+    readonly getIntermediateDate: UnwrapRef<typeof import('./src/composables/Date.js')['getIntermediateDate']>
+    readonly getLastDaysDate: UnwrapRef<typeof import('./src/composables/Date.js')['getLastDaysDate']>
+    readonly getLastWeekRange: UnwrapRef<typeof import('./src/composables/Date.js')['getLastWeekRange']>
+    readonly getXAfterDate: UnwrapRef<typeof import('./src/composables/Date.js')['getXAfterDate']>
+    readonly getXAfterDateTime: UnwrapRef<typeof import('./src/composables/Date.js')['getXAfterDateTime']>
+    readonly getXBeforeDate: UnwrapRef<typeof import('./src/composables/Date.js')['getXBeforeDate']>
+    readonly getXBeforeDateTime: UnwrapRef<typeof import('./src/composables/Date.js')['getXBeforeDateTime']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly injectLocal: UnwrapRef<typeof import('@vueuse/core')['injectLocal']>
+    readonly isAfter: UnwrapRef<typeof import('./src/composables/Date.js')['isAfter']>
+    readonly isBefore: UnwrapRef<typeof import('./src/composables/Date.js')['isBefore']>
+    readonly isBetween: UnwrapRef<typeof import('./src/composables/Date.js')['isBetween']>
     readonly isDark: UnwrapRef<typeof import('./src/composables/dark')['isDark']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
+    readonly isSame: UnwrapRef<typeof import('./src/composables/Date.js')['isSame']>
+    readonly isSameOrAfter: UnwrapRef<typeof import('./src/composables/Date.js')['isSameOrAfter']>
+    readonly isSameOrBefore: UnwrapRef<typeof import('./src/composables/Date.js')['isSameOrBefore']>
+    readonly isValidDate: UnwrapRef<typeof import('./src/composables/Date.js')['isValidDate']>
+    readonly isValidDateTime: UnwrapRef<typeof import('./src/composables/Date.js')['isValidDateTime']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
@@ -381,6 +430,7 @@ declare module 'vue' {
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>
+    readonly theme: UnwrapRef<typeof import('./src/composables/theme.js')['default']>
     readonly throttledRef: UnwrapRef<typeof import('@vueuse/core')['throttledRef']>
     readonly throttledWatch: UnwrapRef<typeof import('@vueuse/core')['throttledWatch']>
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>

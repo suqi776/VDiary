@@ -39,6 +39,7 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'https://api.suqi.xyz',
+        // target: 'http://localhost:3333',
         changeOrigin: true,
       },
     },
