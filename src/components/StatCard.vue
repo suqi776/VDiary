@@ -69,7 +69,7 @@ function updateWeight() {
       <div class="stat-value">
         {{ yesterDayInfo.weight }}g
       </div>
-      <div class="stat-desc">
+      <div class="stat-desc text-10px md:text-16px">
         -
       </div>
     </div>
@@ -81,7 +81,7 @@ function updateWeight() {
       <div class="stat-value text-pink-600 dark:text-pink-300">
         {{ toDayInfo.weight }}g
       </div>
-      <div :class="textClass">
+      <div :class="textClass" class="text-10px md:text-16px">
         {{ relatively }}
       </div>
     </div>
@@ -93,7 +93,7 @@ function updateWeight() {
       <div class="flex items-end stat-value">
         {{ targetWeight.target }}g<div class="i-carbon:edit ml-1 h-1.2rem w-1.2rem icon-btn" @click="visible = true" />
       </div>
-      <div :class="mTextClass">
+      <div :class="mTextClass" class="text-10px md:text-16px">
         {{ toRelatively }}
       </div>
     </div>

@@ -25,6 +25,7 @@ function login() {
     // 跳转到主页
     window.location.href = '/'
   }).catch((error) => {
+    // 清除 SessionStorage 中的 JWT token
     errorMessage.value = '登录失败：用户名或密码错误'
     console.error('登录失败:', error)
   })

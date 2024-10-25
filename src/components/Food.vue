@@ -72,7 +72,7 @@ const option = ref({
 
 <template>
   <VChart
-    class="h-full p-y-20px"
+    class="h-300px p-y-20px md:h-full"
     :option="option"
     :theme="theme"
     autoresize

@@ -64,7 +64,7 @@ function onDateSelect(date) {
 </script>
 
 <template>
-  <div>
+  <div class="w-full sm:w-[24rem]">
     <Toast />
     <DatePicker v-model="selectedDate" class="w-full sm:w-[24rem]" showweek inline @date-select="onDateSelect">
       <template #header>

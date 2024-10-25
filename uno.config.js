@@ -12,7 +12,7 @@ export default defineConfig({
     ['icon-btn', 'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-pink-500 !outline-none'],
     ['stats', 'inline-grid rounded-md'],
     ['stat', 'inline-grid w-full grid-cols-1'],
-    ['stat-value', 'text-4xl font-extrabold leading-tight'],
+    ['stat-value', 'text-28px md:text-4xl font-extrabold leading-tight'],
   ],
   presets: [
     presetUno(),
