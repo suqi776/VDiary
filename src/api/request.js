@@ -40,6 +40,12 @@ api.interceptors.response.use((response) => {
   NProgress.done()
   if (error.response && error.response.status === 401 && error.config.url !== '/login') {
     console.error('令牌已过期，请重新登录')
+    // 清除 SessionStorage 中的 JWT token
+    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('userId')
+
+    localStorage.removeItem('token')
+    localStorage.removeItem('userId')
     // 跳转到登录页面
     window.location.href = '/login'
   }

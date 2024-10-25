@@ -5,29 +5,22 @@ const baiduHot = ref([])
 const zhihuHot = ref([])
 const weiboHot = ref([])
 
-api.post('/openapi/hot', {
-  type: 'baidu',
-}).then((response) => {
-  baiduHot.value = response.data
-}).catch((error) => {
-  console.error('请求出错:', error)
-})
+async function fetchHotData(type, refVar) {
+  try {
+    const response = await api.post('/openapi/hot', { type })
+    refVar.value = response.data
+  }
+  catch (error) {
+    console.error('请求出错:', error)
+    // 等待 3 秒后重新请求
+    setTimeout(() => fetchHotData(type, refVar), 3000)
+  }
+}
 
-api.post('/info/hot', {
-  type: 'zhihu',
-}).then((response) => {
-  zhihuHot.value = response.data
-}).catch((error) => {
-  console.error('请求出错:', error)
-})
-
-api.post('/info/hot', {
-  type: 'weibo',
-}).then((response) => {
-  weiboHot.value = response.data
-}).catch((error) => {
-  console.error('请求出错:', error)
-})
+// 发起请求
+fetchHotData('baidu', baiduHot)
+fetchHotData('zhihu', zhihuHot)
+fetchHotData('weibo', weiboHot)
 </script>
 
 <template>
