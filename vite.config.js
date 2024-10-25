@@ -38,8 +38,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://my-node-api-khaki.vercel.app',
-        // target: 'http://localhost:3333',
+        // target: 'https://api.suqi.xyz',
+        target: 'http://localhost:3333',
+        changeOrigin: true,
+      },
+      '/hot': {
+        target: 'https://api.52vmy.cn',
         changeOrigin: true,
       },
     },

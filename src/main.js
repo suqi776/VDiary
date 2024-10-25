@@ -2,14 +2,17 @@ import { createApp } from 'vue'
 import PrimeVue from 'primevue/config'
 import ToastService from 'primevue/toastservice'
 import { createPinia } from 'pinia'
+import VueViewer from 'v-viewer'
 import App from './App.vue'
 import '@unocss/reset/tailwind.css'
 import 'virtual:uno.css'
 import { router } from '~/router/router.js'
 import Noir from '~/composables/theme'
+import 'viewerjs/dist/viewer.css'
 
 const pinia = createPinia()
 const app = createApp(App)
+app.use(VueViewer)
 app.use(router)
 app.use(ToastService)
 app.use(pinia)

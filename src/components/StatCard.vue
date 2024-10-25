@@ -61,7 +61,7 @@ function updateWeight() {
 
 <template>
   <Toast />
-  <div class="w-full flex shadow">
+  <div class="w-full flex rounded-xl shadow">
     <div class="stat place-items-center p-y-30px">
       <div class="stat-title">
         昨天体重
@@ -90,7 +90,7 @@ function updateWeight() {
       <div class="stat-title">
         目标体重
       </div>
-      <div class="stat-value flex items-end">
+      <div class="flex items-end stat-value">
         {{ targetWeight.target }}g<div class="i-carbon:edit ml-1 h-1.2rem w-1.2rem icon-btn" @click="visible = true" />
       </div>
       <div :class="mTextClass">
