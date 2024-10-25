@@ -38,8 +38,8 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://api.suqi.xyz',
-        // target: 'http://localhost:3333',
+        // target: 'https://api.suqi.xyz',
+        target: 'http://localhost:3333',
         changeOrigin: true,
       },
       '/hot': {

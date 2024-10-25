@@ -1,31 +1,33 @@
 <script setup>
-import axios from 'axios'
+import api from '~/api/request'
 
 const baiduHot = ref([])
 const zhihuHot = ref([])
 const weiboHot = ref([])
 
-axios.get('/hot/api/wl/hot?type=baidu')
-  .then((response) => {
-    baiduHot.value = response.data
-  })
-  .catch((error) => {
-    console.error('请求出错:', error)
-  })
-axios.get('/hot/api/wl/hot?type=zhihu')
-  .then((response) => {
-    zhihuHot.value = response.data
-  })
-  .catch((error) => {
-    console.error('请求出错:', error)
-  })
-axios.get('/hot/api/wl/hot?type=weibo')
-  .then((response) => {
-    weiboHot.value = response.data
-  })
-  .catch((error) => {
-    console.error('请求出错:', error)
-  })
+api.post('/openapi/hot', {
+  type: 'baidu',
+}).then((response) => {
+  baiduHot.value = response.data
+}).catch((error) => {
+  console.error('请求出错:', error)
+})
+
+api.post('/info/hot', {
+  type: 'zhihu',
+}).then((response) => {
+  zhihuHot.value = response.data
+}).catch((error) => {
+  console.error('请求出错:', error)
+})
+
+api.post('/info/hot', {
+  type: 'weibo',
+}).then((response) => {
+  weiboHot.value = response.data
+}).catch((error) => {
+  console.error('请求出错:', error)
+})
 </script>
 
 <template>

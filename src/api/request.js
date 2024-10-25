@@ -6,7 +6,7 @@ import 'nprogress/nprogress.css'
 // 创建新的axios实例
 const api = axios.create({
   // 环境变量，需要在.env文件中配置
-  baseURL: 'https://api.suqi.xyz/api',
+  baseURL: '/api',
   // 超时时间暂定5s
   timeout: 5000,
 })
