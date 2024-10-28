@@ -3,13 +3,35 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    component: () => import('~/pages/home.vue'),
+    component: () => import('~/pages/index.vue'),
     meta: { requiresAuth: true }, // 需要登录
+    children: [
+      {
+        path: '', // 子路由的路径应相对于父路由
+        component: () => import('~/pages/home.vue'),
+        meta: { requiresAuth: true }, // 需要登录
+      },
+      {
+        path: 'weight', // 子路由的路径应相对于父路由
+        component: () => import('~/pages/weight.vue'),
+        meta: { requiresAuth: true }, // 需要登录
+      },
+      {
+        path: 'food', // 子路由的路径应相对于父路由
+        component: () => import('~/pages/food.vue'),
+        meta: { requiresAuth: true }, // 需要登录
+      },
+      {
+        path: 'hi', // 子路由的路径应相对于父路由
+        component: () => import('~/pages/Hi/hi.vue'),
+        meta: { requiresAuth: true }, // 需要登录
+      },
+      // 可以在这里添加更多子路由
+    ],
   },
   {
-    path: '/hi',
-    component: () => import('~/pages/Hi/hi.vue'),
-    meta: { requiresAuth: true }, // 需要登录
+    path: '/index',
+    redirect: '/', // 重定向到根路径
   },
   {
     path: '/login',

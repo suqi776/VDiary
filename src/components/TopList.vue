@@ -7,13 +7,13 @@ const store = useInfoStore()
 
 const { userInfo } = storeToRefs(store)
 
-let userId = sessionStorage.getItem('userId')
-if (userId) {
-  userId = localStorage.getItem('userId')
-}
+const userId = sessionStorage.getItem('userId') || localStorage.getItem('userId')
+
+// 定义一个 ref 来存储定时器的 ID
+const intervalId = ref(null)
 
 // 每隔一秒检查 getAllUserInfo
-setInterval(() => {
+function fetchUserInfo() {
   api.post('/info/getAllUserInfo', {
     userId,
   }).then((response) => {
@@ -27,11 +27,14 @@ setInterval(() => {
   }).catch((error) => {
     console.error('失败:', error)
   })
-}, 2000)
+}
 
+// 启动定时器
+intervalId.value = setInterval(fetchUserInfo, 2000)
+
+// 组件卸载前清理定时器
 onBeforeUnmount(() => {
-  // 清理定时器
-  clearInterval(intervalId)
+  clearInterval(intervalId.value)
 })
 </script>
 

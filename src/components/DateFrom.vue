@@ -6,6 +6,30 @@ import { useInfoStore } from '~/pinia/useInfoPinia'
 const store = useInfoStore()
 const toast = useToast()
 
+const elementRef = ref(null)
+const elementWidth = ref(0)
+
+// 定义一个函数用于更新元素宽度
+function updateElementWidth() {
+  if (elementRef.value) {
+    elementWidth.value = elementRef.value.offsetWidth
+  }
+}
+
+// 在组件挂载时，设置事件监听器
+onMounted(() => {
+  updateElementWidth()
+  window.addEventListener('resize', updateElementWidth)
+})
+
+// 在组件销毁前，移除事件监听器
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateElementWidth)
+})
+
+// 根据元素宽度计算是否为 inline 模式
+const isInline = computed(() => elementWidth.value > 384)
+
 function showSuccess() {
   toast.add({ severity: 'success', summary: '添加成功', life: 3000 })
 }
@@ -64,9 +88,9 @@ function onDateSelect(date) {
 </script>
 
 <template>
-  <div class="w-full sm:w-[24rem]">
+  <div ref="elementRef" class="w-full">
     <Toast />
-    <DatePicker v-model="selectedDate" class="w-full sm:w-[24rem]" showweek inline @date-select="onDateSelect">
+    <DatePicker v-model="selectedDate" class="w-full" showweek :inline="isInline" @date-select="onDateSelect">
       <template #header>
         <Button label="回到今天" text @click="setToday" />
       </template>

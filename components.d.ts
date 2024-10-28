@@ -11,6 +11,7 @@ declare module 'vue' {
     AccordionContent: typeof import('primevue/accordioncontent')['default']
     AccordionHeader: typeof import('primevue/accordionheader')['default']
     AccordionPanel: typeof import('primevue/accordionpanel')['default']
+    Avatar: typeof import('primevue/avatar')['default']
     Button: typeof import('primevue/button')['default']
     Checkbox: typeof import('primevue/checkbox')['default']
     Column: typeof import('primevue/column')['default']
@@ -18,10 +19,12 @@ declare module 'vue' {
     DateFrom: typeof import('./src/components/DateFrom.vue')['default']
     DatePicker: typeof import('primevue/datepicker')['default']
     Dialog: typeof import('primevue/dialog')['default']
+    Fieldset: typeof import('primevue/fieldset')['default']
     FloatLabel: typeof import('primevue/floatlabel')['default']
     Food: typeof import('./src/components/Food.vue')['default']
     FoodRose: typeof import('./src/components/FoodRose.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
+    Home: typeof import('./src/components/Home.vue')['default']
     Hot: typeof import('./src/components/Hot.vue')['default']
     HotApi: typeof import('./src/components/HotApi.vue')['default']
     InputGroup: typeof import('primevue/inputgroup')['default']
@@ -30,6 +33,8 @@ declare module 'vue' {
     InputText: typeof import('primevue/inputtext')['default']
     Kv: typeof import('./src/components/Kv.vue')['default']
     Login: typeof import('./src/components/Login.vue')['default']
+    Menu: typeof import('primevue/menu')['default']
+    Nav: typeof import('./src/components/Nav.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     StatCard: typeof import('./src/components/StatCard.vue')['default']
@@ -37,5 +42,8 @@ declare module 'vue' {
     Toast: typeof import('primevue/toast')['default']
     TopList: typeof import('./src/components/TopList.vue')['default']
     WeightWeek: typeof import('./src/components/WeightWeek.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    Ripple: typeof import('primevue/ripple')['default']
   }
 }
