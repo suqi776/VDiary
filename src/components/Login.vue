@@ -25,7 +25,6 @@ function login() {
     // 跳转到主页
     window.location.href = '/'
   }).catch((error) => {
-    // 清除 SessionStorage 中的 JWT token
     errorMessage.value = '登录失败：用户名或密码错误'
     console.error('登录失败:', error)
   })
@@ -53,7 +52,7 @@ function login() {
           <i class="i-carbon-unlocked" />
         </InputGroupAddon>
         <FloatLabel variant="on">
-          <InputText id="on_password" v-model="password" type="password" />
+          <InputText id="on_password" v-model="password" type="password" @keydown.enter="login" />
           <label for="on_password">密码</label>
         </FloatLabel>
       </InputGroup>
