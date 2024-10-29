@@ -44,6 +44,11 @@ onBeforeUnmount(() => {
       我和我的小伙伴
     </h2>
     <DataTable :value="userInfo" size="small" striped-rows class="flex justify-center">
+      <Column header="头像">
+        <template #body="slotProps">
+          <Avatar :image="slotProps.data.avatar" shape="circle" />
+        </template>
+      </Column>
       <Column field="name" header="昵称" class="!text-center" />
       <Column field="target" header="目标体重" class="!text-center" />
       <Column field="latestWeight" header="当前体重" class="!text-center" />
