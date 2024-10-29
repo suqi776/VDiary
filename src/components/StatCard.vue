@@ -78,7 +78,7 @@ function updateWeight() {
       <div class="stat-title">
         今日体重
       </div>
-      <div class="stat-value text-pink-600 dark:text-pink-300">
+      <div class="text-pink-600 stat-value dark:text-pink-300">
         {{ toDayInfo.weight }}g
       </div>
       <div :class="textClass" class="text-10px md:text-16px">

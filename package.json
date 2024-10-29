@@ -14,16 +14,18 @@
     "@vueuse/core": "^10.11.1",
     "axios": "^1.7.7",
     "chart.js": "^4.4.5",
+    "cropperjs": "^1.6.2",
     "dayjs": "^1.11.13",
     "echarts": "^5.5.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.2.4",
     "primevue": "^4.1.1",
-    "v-viewer": "^3.0.11",
     "viewerjs": "^1.11.6",
     "vue": "^3.5.12",
+    "vue-cropper": "^1.1.4",
     "vue-echarts": "^7.0.3",
-    "vue-router": "^4.4.5"
+    "vue-router": "^4.4.5",
+    "vue-upload-component": "^3.1.17"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.27.3",
@@ -34,7 +36,6 @@
     "@unocss/preset-uno": "^0.60.4",
     "@vitejs/plugin-vue": "^5.1.4",
     "autoprefixer": "^10.4.20",
-    "daisyui": "^4.12.13",
     "eslint": "^9.12.0",
     "typescript": "^5.6.3",
     "unocss": "^0.60.4",

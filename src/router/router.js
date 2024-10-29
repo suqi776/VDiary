@@ -22,10 +22,15 @@ const routes = [
         meta: { requiresAuth: true }, // 需要登录
       },
       {
-        path: 'hi', // 子路由的路径应相对于父路由
-        component: () => import('~/pages/Hi/hi.vue'),
+        path: 'settings', // 子路由的路径应相对于父路由
+        component: () => import('~/pages/settings.vue'),
         meta: { requiresAuth: true }, // 需要登录
       },
+      // {
+      //   path: 'hi', // 子路由的路径应相对于父路由
+      //   component: () => import('~/pages/Hi/hi.vue'),
+      //   meta: { requiresAuth: true }, // 需要登录
+      // },
       // 可以在这里添加更多子路由
     ],
   },

@@ -19,6 +19,8 @@ export const useInfoStore = defineStore('info', () => {
   const targetWeight = ref([])
   const userInfo = ref([])
 
+  const userAvatar = ref([])
+
   async function getToDayInfo() {
     api.post('/info/getInfoByDate', {
       userId,
@@ -96,10 +98,20 @@ export const useInfoStore = defineStore('info', () => {
       console.error('失败:', error)
     })
 
+    // 当前体重
     api.post('/info/getTargetWeight', {
       userId,
     }).then((response) => {
       targetWeight.value = response.data
+    }).catch((error) => {
+      console.error('失败:', error)
+    })
+
+    // 当前头像
+    api.post('/info/getUserAvatar', {
+      userId,
+    }).then((response) => {
+      userAvatar.value = response.data
     }).catch((error) => {
       console.error('失败:', error)
     })
@@ -119,5 +131,5 @@ export const useInfoStore = defineStore('info', () => {
     })
   }
 
-  return { toDayInfo, yesterDayInfo, getToDayInfo, echartsData, echartsWeekRangeData, getInfoFood, targetWeight, userInfo }
+  return { toDayInfo, yesterDayInfo, getToDayInfo, echartsData, echartsWeekRangeData, getInfoFood, targetWeight, userInfo, userAvatar }
 })

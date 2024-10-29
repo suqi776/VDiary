@@ -14,7 +14,7 @@ export default defineConfig({
     ['stat', 'inline-grid w-full grid-cols-1'],
     ['stat-value', 'text-28px md:text-4xl font-extrabold leading-tight'],
     ['active', 'bg-pink-300'],
-    ['router-link-css', 'flex cursor-pointer items-center gap-4 rounded-lg p-0 md:p-4 text-center transition-colors duration-200 ease-in-out hover:bg-[#7F7F7F]'],
+    ['router-link-css', 'flex cursor-pointer items-center gap-4 rounded-lg p-0 md:p-4 text-center transition-colors duration-200 ease-in-out md:hover:bg-[#7F7F7F]'],
   ],
   presets: [
     presetUno(),

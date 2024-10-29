@@ -1,5 +1,11 @@
 <script setup>
 import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useInfoStore } from '~/pinia/useInfoPinia'
+
+const store = useInfoStore()
+
+const { userAvatar } = storeToRefs(store)
 
 const tooltip = ref('')
 const tooltipX = ref(0)
@@ -47,12 +53,12 @@ function logout() {
   <div class="bg-surface-50 dark:bg-surface-900 h-60px w-100% flex justify-between rounded-2xl md:h-full md:w-16 md:flex-col">
     <!-- Logo -->
     <div class="flex items-center justify-center">
-      <Avatar image="./icod.png" class="ml-2 md:mt-2" size="large" shape="circle" />
+      <Avatar :image="userAvatar.avatar" class="ml-2 md:mt-2" size="large" shape="circle" />
     </div>
 
     <!-- Navigation Items -->
     <!-- Navigation Items -->
-    <div class="w-50% flex justify-between md:w-100% md:flex-col md:gap-4 md:p-2">
+    <div class="flex md:w-100% md:flex-col md:gap-4 md:p-2">
       <router-link
         to="/"
         class="router-link-css"
@@ -64,11 +70,11 @@ function logout() {
       </router-link>
       <router-link
         to="/food"
-        class="router-link-css"
+        class="m-x-2 md:m-x-0 router-link-css"
         @mouseenter="(e) => showTooltip('饮食', e)"
         @mouseleave="hideTooltip"
       >
-        <div class="i-carbon:apps" :class="{ active: $route.path === '/hi' }" />
+        <div class="i-carbon:apps" :class="{ active: $route.path === '/food' }" />
         <span class="hidden">饮食</span>
       </router-link>
       <router-link
@@ -80,21 +86,29 @@ function logout() {
         <div class="i-carbon-ibm-jrs" :class="{ active: $route.path === '/weight' }" />
         <span class="hidden">体重</span>
       </router-link>
+      <router-link
+        to="/settings"
+        class="router-link-css"
+        @mouseenter="(e) => showTooltip('个人信息修改', e)"
+        @mouseleave="hideTooltip"
+      >
+        <div class="i-carbon:settings" :class="{ active: $route.path === '/settings' }" />
+        <span class="hidden">个人信息修改</span>
+      </router-link>
     </div>
-
-    <div class="flex flex-col p-2">
-      <div class="router-link-css icon-btn" @click="toggleDark()" @mouseenter="(e) => showTooltip('切换暗模式', e)" @mouseleave="hideTooltip">
+    <div class="flex justify-between p-r-2 md:w-100% md:flex-col md:gap-4 md:p-2">
+      <div class="m-r-2 md:m-r-0 icon-btn router-link-css" @click="toggleDark()" @mouseenter="(e) => showTooltip('切换暗模式', e)" @mouseleave="hideTooltip">
         <div i-carbon-sun dark:i-carbon-moon />
         <span class="hidden">切换暗模式</span>
       </div>
-      <div class="router-link-css icon-btn" @click="logout()" @mouseenter="(e) => showTooltip('退出登陆', e)" @mouseleave="hideTooltip">
+      <div class="icon-btn router-link-css" @click="logout()" @mouseenter="(e) => showTooltip('退出登陆', e)" @mouseleave="hideTooltip">
         <div class="i-carbon:logout" />
         <span class="hidden">退出登陆</span>
       </div>
     </div>
 
     <!-- Tooltip -->
-    <div v-if="tooltip" :style="{ top: `${tooltipY}px`, left: `${tooltipX}px` }" class="absolute z-999 rounded bg-gray-700 p-2 text-sm text-white transition-opacity duration-300">
+    <div v-if="tooltip" :style="{ top: `${tooltipY}px`, left: `${tooltipX}px` }" class="absolute z-999 hidden rounded bg-gray-700 p-2 text-sm text-white transition-opacity duration-300 md:block">
       {{ tooltip }}
     </div>
   </div>
