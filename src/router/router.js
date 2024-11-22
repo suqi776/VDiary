@@ -1,4 +1,4 @@
-import { createRouter, createHashHistory } from 'vue-router'
+import { createHashHistory, createRouter } from 'vue-router'
 
 const routes = [
   {
