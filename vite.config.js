@@ -21,25 +21,34 @@ export default defineConfig({
         enabled: true, // 启用开发模式的 PWA
       },
       manifest: {
-        name: '',
-        short_name: '',
-        description: '',
+        name: '记录',
+        short_name: '记录',
+        description: '记录',
         theme_color: '#ffffff',
         icons: [
           {
-            src: 'icon.png',
-            sizes: '180x180',
-            type: 'image/png',
-          },
-          {
-            src: 'icon.png',
+            src: 'icons/manifest-icon-192.maskable.png',
             sizes: '192x192',
             type: 'image/png',
+            purpose: 'any',
           },
           {
-            src: 'icon.png',
+            src: 'icons/manifest-icon-192.maskable.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+          {
+            src: 'icons/manifest-icon-512.maskable.png',
             sizes: '512x512',
             type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: 'icons/manifest-icon-512.maskable.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
           },
         ],
       },
