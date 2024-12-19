@@ -40,7 +40,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div>
-    <h2 class="flex justify-center p-y-10px text-4xl font-extrabold leading-tight">
+    <h2 class="flex justify-center p-y-10px text-2xl font-extrabold leading-tight">
       我和我的小伙伴
     </h2>
     <DataTable :value="userInfo" size="small" striped-rows class="flex justify-center">

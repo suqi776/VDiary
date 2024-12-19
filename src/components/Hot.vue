@@ -44,11 +44,35 @@ async function openViewer() {
     viewer.show()
   })
 }
+
+// 知乎热榜：zhihu、微博热搜：weibo、百度热点：baidu
+// 历史上的今天：history、 哔哩哔哩热搜：bilihot、 哔哩哔哩全站日榜：biliall
+// 少数派头条：sspai、 抖音热搜：douyin、CSDN头条榜：csdn
+
+const hotList = [
+  { number: '1', type: 'zhihu', name: '知乎热榜', description: '知乎热榜' },
+  { number: '2', type: 'weibo', name: '微博热搜', description: '微博热搜' },
+  { number: '3', type: 'history', name: '历史上的今天', description: '历史上的今天' },
+  { number: '4', type: 'bilihot', name: '哔哩哔哩热搜', description: '哔哩哔哩热搜' },
+  { number: '5', type: 'biliall', name: '哔哩哔哩全站日榜', description: '哔哩哔哩全站日榜' },
+  { number: '6', type: 'sspai', name: '少数派头条', description: '少数派头条' },
+  { number: '7', type: 'douyin', name: '抖音热搜', description: '抖音热搜' },
+]
 </script>
 
 <template>
   <div class="p-10px">
-    <HotApi />
+    <div class="card rounded">
+      <Accordion value="0">
+        <HotApi
+          v-for="(item, index) in hotList"
+          :key="index"
+          :type="item.type"
+          :name="item.name"
+          :number="item.number"
+        />
+      </Accordion>
+    </div>
     <div class="p-y-10px">
       <img id="image" :src="imageSrc" style="display: none;">
       <Button class="w-full" label="获取摸鱼日报" @click="openViewer" />

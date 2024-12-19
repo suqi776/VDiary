@@ -88,7 +88,7 @@ function logout() {
       </router-link>
       <router-link
         to="/settings"
-        class="router-link-css"
+        class="m-l-2 md:m-l-0 router-link-css"
         @mouseenter="(e) => showTooltip('个人信息修改', e)"
         @mouseleave="hideTooltip"
       >

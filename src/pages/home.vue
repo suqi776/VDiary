@@ -20,7 +20,7 @@ onMounted(() => {
     <div class="col-span-1 hidden border border-blueGray rounded-xl md:col-span-2 md:block md:flex">
       <StatCard />
     </div>
-    <div class="col-span-1 row-span-4 border border-blueGray rounded-xl md:col-span-1">
+    <div class="col-span-1 row-span-4 overflow-scroll border border-blueGray rounded-xl md:col-span-1">
       <Hot />
     </div>
     <div class="border border-blueGray rounded-xl">
